@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, ArrowUpRight } from 'lucide-react';
-import emailjs from '@emailjs/browser'; // Importamos la librería
+import emailjs from '@emailjs/browser';
 
 interface ContactProps {
   darkMode: boolean;
@@ -23,12 +23,19 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const serviceID = 'service_i3bvr32'; 
+    const serviceID = 'service_i3bvr32';
     const templateID = 'template_y4vejsu';
-    const publicKey = 'PYKmeAOpAMqZCNUzg'; 
+    const publicKey = 'PYKmeAOpAMqZCNUzg';
+    
+    // Aquí agregamos la variable title con un valor fijo, ya que tu plantilla lo necesita
+    const templateParams = {
+      ...formData,
+      title: 'Nuevo mensaje de contacto'
+    };
 
-    // Aquí es donde enviamos el formulario a EmailJS
-    emailjs.send(serviceID, templateID, formData, {
+    console.log('Enviando datos:', templateParams); // Muestra los datos que se van a enviar
+    
+    emailjs.send(serviceID, templateID, templateParams, {
       publicKey: publicKey,
     })
     .then((response) => {
@@ -48,7 +55,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
       <div className="container mx-auto px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20">
-            {/* ... Tu código actual para la columna izquierda */}
+            {/* Left Column */}
             <div className="space-y-8">
               <div>
                 <span className={`text-8xl md:text-9xl font-extralight ${
@@ -77,6 +84,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
                 </p>
               </div>
 
+              {/* Contact Info */}
               <div className="space-y-6 pt-8">
                 <a
                   href="mailto:luismiguel10608@gmail.com"
@@ -103,7 +111,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            {/* Columna derecha - Formulario */}
+            {/* Right Column - Form */}
             <div>
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
