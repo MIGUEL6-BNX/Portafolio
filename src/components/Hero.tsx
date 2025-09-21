@@ -115,7 +115,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
             {[
               { Icon: Github, href: 'https://github.com/MIGUEL6-BNX', label: 'GitHub', color: 'hover:text-gray-400' },
               { Icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-blue-400' },
-              { Icon: Mail, href: 'mailto:luismiguel10608@gmail.com', label: 'Email', color: 'hover:text-green-400' }
+              { Icon: Mail, href: 'mailto:developermiguel10@gmail.com', label: 'Email', color: 'hover:text-green-400' }
             ].map(({ Icon, href, label, color }) => (
               <a
                 key={label}
