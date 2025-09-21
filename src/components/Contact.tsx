@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, ArrowUpRight } from 'lucide-react';
+import emailjs from '@emailjs/browser'; // Importamos la librería
 
 interface ContactProps {
   darkMode: boolean;
@@ -21,9 +22,23 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Formulario enviado:', formData);
-    alert('¡Mensaje enviado! Te responderé pronto.');
-    setFormData({ name: '', email: '', message: '' });
+
+    const serviceID = 'service_i3bvr32'; 
+    const templateID = 'template_y4vejsu';
+    const publicKey = 'PYKmeAOpAMqZCNUzg'; 
+
+    // Aquí es donde enviamos el formulario a EmailJS
+    emailjs.send(serviceID, templateID, formData, {
+      publicKey: publicKey,
+    })
+    .then((response) => {
+      console.log('Correo enviado con éxito!', response.status, response.text);
+      alert('¡Mensaje enviado! Te responderé pronto.');
+      setFormData({ name: '', email: '', message: '' }); // Limpia el formulario
+    }, (error) => {
+      console.error('Error al enviar el correo:', error.text);
+      alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+    });
   };
 
   return (
@@ -33,7 +48,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
       <div className="container mx-auto px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20">
-            {/* Left Column */}
+            {/* ... Tu código actual para la columna izquierda */}
             <div className="space-y-8">
               <div>
                 <span className={`text-8xl md:text-9xl font-extralight ${
@@ -62,10 +77,9 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
                 </p>
               </div>
 
-              {/* Contact Info */}
               <div className="space-y-6 pt-8">
                 <a
-                  href="mailto:juan.dev@email.com"
+                  href="mailto:luismiguel10608@gmail.com"
                   className={`group flex items-center gap-4 transition-all duration-300 ${
                     darkMode 
                       ? 'text-gray-400 hover:text-white' 
@@ -89,7 +103,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            {/* Right Column - Form */}
+            {/* Columna derecha - Formulario */}
             <div>
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
