@@ -103,7 +103,9 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                   ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-500 hover:to-blue-500' 
                   : 'bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600'
               }`}>
+                
                 Ver Mi Trabajo
+                
               </button>
             </div>
           </div>
@@ -111,7 +113,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           {/* Social Links with Hover Effects */}
           <div className="flex justify-center gap-8 mt-16 animate-fade-in stagger-6">
             {[
-              { Icon: Github, href: '#', label: 'GitHub', color: 'hover:text-gray-400' },
+              { Icon: Github, href: 'https://github.com/MIGUEL6-BNX', label: 'GitHub', color: 'hover:text-gray-400' },
               { Icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-blue-400' },
               { Icon: Mail, href: 'mailto:luismiguel10608@gmail.com', label: 'Email', color: 'hover:text-green-400' }
             ].map(({ Icon, href, label, color }) => (
