@@ -44,9 +44,9 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       image: 'https://raw.githubusercontent.com/MIGUEL6-BNX/Portafolio/refs/heads/main/img/open.png',
       tech: ['HTML', 'JavaScript', 'node.js'],
       year: '2025',
-      status: 'En Progreso',
+      status: 'Completado',
       github: '#',
-      demo: '#'
+      demo: 'https://www.openmindcol.online/'
     },
     {
       id: 3,
@@ -55,9 +55,9 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       image: 'https://raw.githubusercontent.com/MIGUEL6-BNX/Portafolio/refs/heads/main/img/verse.png',
       tech: ['React', 'JavaScript', 'node.js', 'Python', 'Responsive'],
       year: '2025',
-      status: 'En Progreso',
+      status: 'Completado',
       github: '#',
-      demo: 'https://anime-versel-app-23.vercel.app/'
+      demo: 'https://anime-verse-omega.vercel.app/dashboard'
     },
     {
       id: 4,
